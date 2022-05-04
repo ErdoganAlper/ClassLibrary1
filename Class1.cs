@@ -10,7 +10,7 @@ namespace ClassLibrary1
         }
         public static int Sum(int a, int z)
         {
-            return a + z;
+            return a * z;
 
         }
     }
