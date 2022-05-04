@@ -1,9 +1,0 @@
-name: 'Setup .NET Core SDK'
-description: 'Used to build and publish .NET source. Set up a specific version of the .NET and authentication to private NuGet repository'
-author: 'GitHub'
-branding:
-  icon: play
-  color: green
-runs:
-  using: 'node16'
-  main: 'Class1.cs'
