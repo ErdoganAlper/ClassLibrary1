@@ -33,6 +33,8 @@ jobs:
           repository: MainApplication
       - name: MV MainApplication to MainApplication
         run:  mv ./MainApplication ../
+      - name: ls
+        run: ls
       - name: Copy ClassLibrary1 to MainApplication
         run:  cp -r ./ClassLibrary1 ./MainApplication
       - name: Build project
