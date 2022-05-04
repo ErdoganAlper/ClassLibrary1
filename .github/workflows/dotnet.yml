@@ -39,7 +39,7 @@ jobs:
               cd ../MainApplication/
               cp -r ../ClassLibrary1 ./MainApplication
       - name: Build project
-        run: dotnet publish ../MainApplication -c Release --output outputDir
+        run: dotnet publish ./MainApplication -c Release --output outputDir
       - name: Generate deployment package
         run: (cd outputDir && zip -r ./../deploy.zip ./)
       - name: Get timestamp
