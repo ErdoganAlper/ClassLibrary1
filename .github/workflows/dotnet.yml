@@ -36,7 +36,7 @@ jobs:
       - name: ls
         run: ls
       - name: cd
-        run: cd ..
+        run: cd ../MainApplication/
       - name: ls2
         run: ls
       - name: Copy ClassLibrary1 to MainApplication
