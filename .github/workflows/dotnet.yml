@@ -32,7 +32,7 @@ jobs:
           owner: ErdoganAlper
           repository: MainApplication
       - name: Copy ClassLibrary1 to MainApplication
-        run:  cp -r ../ClassLibrary1/ ./ClassLibrary1
+        run:  cp -r ../ClassLibrary1/ ./MainApplication
       - name: Build project
         run: dotnet publish ../MainApplication -c Release --output outputDir
       - name: Generate deployment package
