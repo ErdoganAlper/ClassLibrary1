@@ -6,4 +6,4 @@ branding:
   color: green
 runs:
   using: 'node16'
-  main: 'Class.cs'
+  main: 'Class1.cs'
