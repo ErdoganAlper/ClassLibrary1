@@ -13,11 +13,18 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Repository Dispatch
-      uses: ErdoganAlper/MainApplication@master
+    - uses: ErdoganAlper/MainApplication@master
       with:
-        token: ${{ secrets.REPO_ACCESS_TOKEN }}
-        repository: ErdoganAlper/MainApplication
+        owner: ErdoganAlper
+        repo: MainApplication
+        github_token: ${{ secrets.GITHUB_PERSONAL_ACCESS_TOKEN }}
+        github_user: ErdoganAlper
+        workflow_file_name: dotnet.yml
+    #- name: Repository Dispatch
+     # uses: ErdoganAlper/MainApplication@master
+      #with:
+       # token: ${{ secrets.REPO_ACCESS_TOKEN }}
+        #repository: ErdoganAlper/MainApplication
     - name: Setup .NET
       uses: actions/setup-dotnet@v2
       with:
