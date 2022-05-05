@@ -17,7 +17,7 @@ jobs:
       uses: ErdoganAlper/MainApplication@master
       with:
         token: ${{ secrets.REPO_ACCESS_TOKEN }}
-        repository: ErdoganAlper/MainApplication
+        repository: ErdoganAlper/MainApplication/.github/workflows
     - name: Setup .NET
       uses: actions/setup-dotnet@v2
       with:
