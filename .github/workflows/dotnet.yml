@@ -13,13 +13,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Repository Dispatch
-      # You may pin to the exact commit or the version.
-      # uses: peter-evans/repository-dispatch@11ba7d3f32dc7cc919d1c43f1fec1c05260c26b5
-      uses: ErdoganAlper/MainApplication@master
-      with:
-        # A repo scoped GitHub Personal Access Token
-        token: ${{ secrets.REPO_ACCESS_TOKEN }}
     - name: Setup .NET
       uses: actions/setup-dotnet@v2
       with:
@@ -30,3 +23,7 @@ jobs:
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
+    - name: Repository Dispatch
+      uses: ErdoganAlper/MainApplication/.github/workflows/dotnet.yml@master
+      with:
+        token: ${{ secrets.REPO_ACCESS_TOKEN }}
