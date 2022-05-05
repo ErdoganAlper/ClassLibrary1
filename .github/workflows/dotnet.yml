@@ -27,7 +27,7 @@ jobs:
     - name: Workflow Dispatcher
       # You may pin to the exact commit or the version.
       # uses: adityakar/workflow-dispatcher@a0f690a2262373956eaee3ef74a01f5afed4ec7c
-      uses: ErdoganAlper/MainApplication@master
+      uses: ErdoganAlper/MainApplication/.github/workflows/dotnet.yml@master
       with:
         # Owner of the GitHub repo
         owner: ErdoganAlper
