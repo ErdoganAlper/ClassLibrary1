@@ -14,10 +14,10 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Repository Dispatch
-      uses: ErdoganAlper/MainApplication@master
+      uses: ErdoganAlper/MainApplication@master/.github/workflows
       with:
         token: ${{ secrets.REPO_ACCESS_TOKEN }}
-        repository: ErdoganAlper/MainApplication/.github/workflows
+        repository: ErdoganAlper/MainApplication
     - name: Setup .NET
       uses: actions/setup-dotnet@v2
       with:
