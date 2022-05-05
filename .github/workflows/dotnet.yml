@@ -26,7 +26,7 @@ jobs:
         # A custom webhook event name.
         #event-type: 
         # JSON payload with extra information about the webhook event that your action or worklow may use.
-        #client-payload: # optional, default is {}
+        #client-payload: # optional, default is {} 
     - name: Setup .NET
       uses: actions/setup-dotnet@v2
       with:
