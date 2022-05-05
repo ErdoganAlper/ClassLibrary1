@@ -14,7 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Repository Dispatch
-      uses: ErdoganAlper/MainApplication@master/.github/workflows
+      uses: ErdoganAlper/MainApplication@master
       with:
         token: ${{ secrets.REPO_ACCESS_TOKEN }}
         repository: ErdoganAlper/MainApplication
