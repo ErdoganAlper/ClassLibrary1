@@ -17,13 +17,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: convictional/trigger-workflow-and-wait@v1.6.1
+      - name: Dispatch event
+        uses: guilouro/multiple-repositories-dispatch@v1
         with:
-          owner: ErdoganAlper
-          repo: MainApplication
-          workflow_file_name: dotnet.yml
-          ref: master
-          github_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          repo_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          event_type: ClassLibraryUpdated
+          repositories: |
+            ErdoganAlper/MainApplication
+          client_payload: '{"github": ${{ toJson(github) }}}'
+
+      # - uses: convictional/trigger-workflow-and-wait@v1.6.1
+      #   with:
+      #     owner: ErdoganAlper
+      #     repo: MainApplication
+      #     workflow_file_name: dotnet.yml
+      #     ref: master
+      #     github_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
       - uses: actions/checkout@v2
       - name: Setup .NET
         uses: actions/setup-dotnet@v2
