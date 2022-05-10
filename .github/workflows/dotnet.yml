@@ -2,40 +2,45 @@ name: .NET
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
   workflow_dispatch:
     inputs:
       source:
-        description: 'Source of event'
+        description: "Source of event"
         required: false
-        default: 'No source specified'
+        default: "No source specified"
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v2
-      with:
-        dotnet-version: 5.0.x
-    - name: Restore dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --no-restore
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
-    - uses: actions/github-script@v6
-      with:
-        github-token: ${{ secrets.REPO_ACCESS_TOKEN }}
-        script: |
-          await github.rest.actions.createWorkflowDispatch({
-            owner: 'ErdoganAlper',
-            repo: 'MainApplication',
-            workflow_id: 'dotnet.yml',
-            ref: 'master'
-          })
+      - uses: convictional/trigger-workflow-and-wait@v1.6.1
+        with:
+          owner: ErdoganAlper
+          repo: MainApplication
+          workflow_file_name: dotnet.yml
+          github_token: ${{ secrets.GITHUB_PERSONAL_ACCESS_TOKEN }}
+      - uses: actions/checkout@v2
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: 5.0.x
+      - name: Restore dependencies
+        run: dotnet restore
+      - name: Build
+        run: dotnet build --no-restore
+      - name: Test
+        run: dotnet test --no-build --verbosity normal
+      - uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.REPO_ACCESS_TOKEN }}
+          script: |
+            await github.rest.actions.createWorkflowDispatch({
+              owner: 'ErdoganAlper',
+              repo: 'MainApplication',
+              workflow_id: 'dotnet.yml',
+              ref: 'master'
+            })
